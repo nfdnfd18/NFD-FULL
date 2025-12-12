@@ -1,13 +1,134 @@
-:root{
-  --bg:#f7f7f9;
-  --accent:#2563eb;
-  --muted:#6b7280;
+/* Modern, simple layout
+   - Fixed header (.nfd-header) at top
+   - Fixed footer (.nfd-footer) at bottom
+   - Fluid, full-screen content in the middle (.nfd-content)
+   - No CSS variables or :root usage; all colors are literal values
+   - Class names are specific and descriptive (nfd- prefix)
+*/
+
+/* Reset basics */
+html, body, #root {
+  height: 100%;
 }
-html,body,#root{height:100%;margin:0;font-family:Inter,Segoe UI,Arial,Helvetica,sans-serif;background:var(--bg);}
-.app-shell{max-width:1100px;margin:24px auto;padding:16px;background:white;border-radius:8px;box-shadow:0 6px 18px rgba(16,24,40,0.06)}
-.header{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid #eee}
-.header .brand{font-weight:700;color:var(--accent)}
-.nav a{margin-left:12px;color:var(--muted);text-decoration:none}
-.nav a.active{color:var(--accent);font-weight:600}
-.main{padding:18px}
-.footer{padding:12px;border-top:1px solid #eee;color:var(--muted);font-size:14px;text-align:center}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  background-color: #f4f7fb; /* light page background */
+  color: #0f172a; /* default text color */
+}
+
+/* Root app wrapper that allows centering content and flexible layout */
+.nfd-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Fixed header */
+.nfd-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  background-color: #0f172a; /* deep navy */
+  color: #ffffff;
+  z-index: 1000;
+  box-shadow: 0 6px 24px rgba(15,23,42,0.08);
+}
+
+.nfd-brand {
+  font-weight: 700;
+  font-size: 1.125rem; /* 18px */
+  letter-spacing: 0.2px;
+}
+
+.nfd-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nfd-nav a {
+  color: #cbd5e1; /* muted link */
+  text-decoration: none;
+  margin-left: 18px;
+  font-weight: 600;
+}
+
+.nfd-nav a:hover {
+  color: #ffffff;
+}
+
+/* The main area sits between header and footer. We use padding-margins equal to fixed heights. */
+.nfd-main {
+  flex: 1 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 64px; /* header height */
+  padding-bottom: 56px; /* footer height */
+}
+
+/* Content card that is fluid and centered with max width */
+.nfd-content {
+  width: calc(100% - 40px);
+  max-width: 1200px;
+  background-color: #ffffff; /* card white */
+  border-radius: 12px;
+  padding: 32px;
+  margin: 24px 0;
+  box-shadow: 0 12px 40px rgba(15,23,42,0.06);
+  box-sizing: border-box;
+}
+
+/* Make inner content scroll if tall, while header/footer remain fixed */
+.nfd-content-scroll {
+  max-height: calc(100vh - 160px);
+  overflow: auto;
+}
+
+/* Fixed footer */
+.nfd-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  background-color: #071028; /* darker navy */
+  color: #e6eef8;
+  z-index: 1000;
+  box-shadow: 0 -6px 20px rgba(7,16,40,0.06);
+}
+
+/* Utility: responsive adjustments */
+@media (max-width: 768px) {
+  .nfd-header { height: 56px; padding: 0 14px; }
+  .nfd-main { padding-top: 56px; }
+  .nfd-footer { height: 56px; }
+  .nfd-content { padding: 20px; width: calc(100% - 28px); }
+}
+
+/* Small helpers */
+.nfd-center { display:flex; align-items:center; justify-content:center; }
+.nfd-muted { color: #667085; }
+
+/* Buttons simple modern style */
+.nfd-btn {
+  display:inline-flex; align-items:center; justify-content:center;
+  background-color: #0f172a; color: #ffffff; border: none; padding: 8px 14px; border-radius: 8px; cursor: pointer; font-weight:600;
+}
+.nfd-btn.ghost { background-color: transparent; color: #0f172a; border: 1px solid rgba(15,23,42,0.06); }
+
+/* End of global styles */
