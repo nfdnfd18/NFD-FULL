@@ -1,0 +1,9 @@
+import React from 'react';
+
+export default function HomeTogleSideBare(){
+  return (
+    <div>
+      <button style={{padding:8,borderRadius:6}}>Toggle sidebar</button>
+    </div>
+  )
+}
