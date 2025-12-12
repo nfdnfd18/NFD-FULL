@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Layout from '../App/layout/Layout.jsx';
-import HomePage from '../App/pages/HomePage.jsx';
-import AboutPage from '../App/pages/AboutPage.jsx';
-import LoginPage from '../App/pages/LoginPage.jsx';
-import RegisterPage from '../App/pages/RegisterPage.jsx';
+import Layout from './App/layout/Layout.jsx';
+import HomePage from './App/pages/HomePage.jsx';
+import AboutPage from './App/pages/AboutPage.jsx';
+import LoginPage from './App/pages/LoginPage.jsx';
+import RegisterPage from './App/pages/RegisterPage.jsx';
 
 export default function App() {
   return (
