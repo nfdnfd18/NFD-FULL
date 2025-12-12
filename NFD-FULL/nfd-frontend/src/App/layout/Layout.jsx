@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
-import '../styles/global.css';
+import '../../styles/global.css';
 
 export default function Layout(){
   const loc = useLocation();
